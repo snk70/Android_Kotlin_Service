@@ -40,13 +40,22 @@ class MyService : Service() {
         val input = intent?.getStringExtra("input")
         createNotification()
         val notificationIntent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 5, intent, PendingIntent.FLAG_IMMUTABLE)
+        val pendingIntent = PendingIntent.getActivity(this, 5, Intent(this,MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
+
+
+/*        val YesIntent=Intent(this,MainActivity::class.java)
+        YesIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        val YesPendingIntent=PendingIntent.getActivity(this,5,YesIntent,PendingIntent.FLAG_IMMUTABLE)*/
+
+
+
 
         val notification =
             NotificationCompat.Builder(this, chan_id).setContentTitle(LocalTime.now().toString())
                 .setContentText(input)
                 .setSmallIcon(R.drawable.ic_alaram)
                 .setContentIntent(pendingIntent)
+//                .addAction(R.drawable.ic_alaram,"Titleeee",YesPendingIntent)
                 .build()
 
         startForeground(1, notification)

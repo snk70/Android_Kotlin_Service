@@ -32,9 +32,12 @@ class MainActivity : AppCompatActivity() {
 
 
         myStartBtn.setOnClickListener {
-            MyService.startService(this, "Started Service...")
+/*            MyService.startService(this, "Started Service...")
             val myToast = Toast.makeText(applicationContext, "Started!!!", Toast.LENGTH_LONG)
-            myToast.show()
+            myToast.show()*/
+
+
+
         }
 
 
